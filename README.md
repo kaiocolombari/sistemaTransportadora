@@ -199,4 +199,3 @@ Para suporte ou dúvidas, entre em contato através das issues do GitHub.
 
 ---
 
-**Desenvolvido com ❤️ para demonstrar habilidades em desenvolvimento full-stack**
