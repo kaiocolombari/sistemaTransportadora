@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportadora System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-screen">
+        <div class="login-container">
+            <h1>Sistema Transportadora</h1>
+            <form id="login-form">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" required>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+            <p>Contas de demonstração: admin/admin123 ou driver/driver123</p>
+        </div>
+    </div>
+
+    <div id="main-app" style="display: none;">
+        <header>
+            <h1>Sistema Transportadora</h1>
+            <nav>
+                <button onclick="showSection('dashboard')">Painel</button>
+                <button onclick="showSection('shipments')">Remessas</button>
+                <button onclick="showSection('vehicles')">Veículos</button>
+                <button onclick="showSection('clients')">Clientes</button>
+                <button onclick="logout()">Sair</button>
+            </nav>
+        </header>
+        <main>
+            <section id="dashboard-section">
+                <h2>Painel de Controle</h2>
+                <div id="dashboard-stats"></div>
+            </section>
+
+            <section id="shipments-section" style="display: none;">
+                <section id="create-shipment">
+                    <h2>Criar Nova Remessa</h2>
+                    <form id="shipment-form">
+                        <label for="origin">Origem:</label>
+                        <input type="text" id="origin" required>
+
+                        <label for="destination">Destino:</label>
+                        <input type="text" id="destination" required>
+
+                        <label for="client-select">Cliente:</label>
+                        <select id="client-select"></select>
+
+                        <label for="vehicle-select">Veículo:</label>
+                        <select id="vehicle-select"></select>
+
+                        <button type="submit">Criar Remessa</button>
+                    </form>
+                </section>
+
+                <section id="shipments-list">
+                    <h2>Remessas</h2>
+                    <div id="shipments-container"></div>
+                </section>
+            </section>
+
+            <section id="vehicles-section" style="display: none;">
+                <h2>Gerenciamento de Veículos</h2>
+                <form id="vehicle-form">
+                    <label for="license-plate">Placa:</label>
+                    <input type="text" id="license-plate" required>
+
+                    <label for="model">Modelo:</label>
+                    <input type="text" id="model" required>
+
+                    <label for="capacity">Capacidade:</label>
+                    <input type="number" id="capacity" required>
+
+                    <button type="submit">Adicionar Veículo</button>
+                </form>
+                <div id="vehicles-container"></div>
+            </section>
+
+            <section id="clients-section" style="display: none;">
+                <h2>Gerenciamento de Clientes</h2>
+                <form id="client-form">
+                    <label for="client-name">Nome:</label>
+                    <input type="text" id="client-name" required>
+
+                    <label for="client-email">Email:</label>
+                    <input type="email" id="client-email" required>
+
+                    <label for="client-phone">Telefone:</label>
+                    <input type="text" id="client-phone" required>
+
+                    <button type="submit">Adicionar Cliente</button>
+                </form>
+                <div id="clients-container"></div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
