@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     loginForm.addEventListener('submit', login);
     
-    // Check if already logged in
     const token = localStorage.getItem('authToken');
     if (token) {
         authToken = token;
@@ -65,7 +64,6 @@ function showSection(sectionName) {
     });
     document.getElementById(`${sectionName}-section`).style.display = 'block';
     
-    // Load data for the section
     switch(sectionName) {
         case 'dashboard':
             loadDashboard();
@@ -204,7 +202,7 @@ async function createShipment(event) {
             document.getElementById('destination').value = '';
             document.getElementById('client-select').value = '';
             document.getElementById('vehicle-select').value = '';
-            loadShipments(); // Refresh list
+            loadShipments(); 
         } else {
             alert('Erro ao criar remessa');
         }
@@ -262,7 +260,7 @@ async function updateStatus(shipmentId, newStatus) {
         });
         
         if (response.ok) {
-            loadShipments(); // Refresh list
+            loadShipments(); 
         } else {
             alert('Erro ao atualizar status');
         }
@@ -272,7 +270,6 @@ async function updateStatus(shipmentId, newStatus) {
     }
 }
 
-// Vehicles management
 async function loadVehicles() {
     try {
         const response = await fetch(`${API_BASE}/vehicles`, {
@@ -358,7 +355,6 @@ async function deleteVehicle(vehicleId) {
     }
 }
 
-// Clients management
 async function loadClients() {
     try {
         const response = await fetch(`${API_BASE}/clients`, {
@@ -443,12 +439,10 @@ async function deleteClient(clientId) {
     }
 }
 
-// Event listeners
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('login-form');
     loginForm.addEventListener('submit', login);
     
-    // Check if already logged in
     const token = localStorage.getItem('authToken');
     if (token) {
         authToken = token;
@@ -457,7 +451,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadDashboard();
     }
     
-    // Add event listeners for forms
     document.getElementById('shipment-form').addEventListener('submit', createShipment);
     document.getElementById('vehicle-form').addEventListener('submit', createVehicle);
     document.getElementById('client-form').addEventListener('submit', createClient);
