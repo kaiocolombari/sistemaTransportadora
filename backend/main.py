@@ -9,26 +9,22 @@ import secrets
 
 app = FastAPI(title="Transportadora API", description="API for transportation system")
 
-# CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify your frontend URL
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Security
 security = HTTPBearer()
 
-# In-memory storage
 users = [
     {"id": "1", "username": "admin", "password": "admin123", "role": "admin"},
     {"id": "2", "username": "driver", "password": "driver123", "role": "driver"}
 ]
 tokens = {}
 
-# In-memory storage
 shipments = []
 vehicles = []
 clients = []
